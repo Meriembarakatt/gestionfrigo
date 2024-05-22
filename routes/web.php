@@ -171,12 +171,12 @@ Route::get('/produits/{produit}', [ProduitController::class, 'show'])->name('pro
 */
 
 
-Route::get('/dashboard', function () {
+Route::get('/home', function () {
     return view('dashboard.index');
 });});
 Route::get('/', function () {
-    return view('auth.login');
+    return view('welcome');
 });
-Auth::routes(['register'=>false]);
+Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
