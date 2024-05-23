@@ -14,12 +14,7 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
-<<<<<<< HEAD
-    {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
-
-=======
  
->>>>>>> 289a9f3 (first commit2)
     <!-- General CSS Files -->
     <link rel="stylesheet" href="{{ asset('assets/modules/bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/modules/fontawesome/css/all.min.css') }}">
