@@ -16,16 +16,23 @@ class DetailBonLivrason extends Model
         'prix_vente',
     ];
 
+<<<<<<< HEAD
     public function bonLivrason()
     {
         return $this->belongsTo(BonLivrason::class);
     }
+=======
+>>>>>>> 17ebe221ad51071fe032247a04e3faccf8d88900
     /**
      * Obtenir le bon de livraison associé à ce détail.
      */
     public function bonLivraison()
     {
+<<<<<<< HEAD
         return $this->belongsTo(BonLivrason::class);
+=======
+        return $this->belongsTo(BonLivraison::class);
+>>>>>>> 17ebe221ad51071fe032247a04e3faccf8d88900
     }
 
     /**

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<<<<<<< HEAD
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -98,10 +99,42 @@
                         </tbody>
                     </table>
                     <button type="button" class="btn btn-primary" onclick="validerBonSort()">Enregistrer Bon de sortie</button>
+=======
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        Ajouter un Bon de Sortie
+                    </div>
+                    <div class="card-body">
+                        <form action="{{ route('bonsorts.store') }}" method="POST">
+                            @csrf
+                            <div class="form-group">
+                                <label for="date">Date</label>
+                                <input type="date" name="date" id="date" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="observation">Observation</label>
+                                <textarea name="observation" id="observation" class="form-control" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="vendeur_id">Vendeur</label>
+                                <select name="vendeur_id" id="vendeur_id" class="form-control" required>
+                                    @foreach($vendeurs as $vendeur)
+                                        <option value="{{ $vendeur->id }}">{{ $vendeur->nom }} {{ $vendeur->prenom }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Ajouter</button>
+                        </form>
+                    </div>
+>>>>>>> 17ebe221ad51071fe032247a04e3faccf8d88900
                 </div>
             </div>
         </div>
     </div>
+<<<<<<< HEAD
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -166,4 +199,6 @@
     }
 </script>
 
+=======
+>>>>>>> 17ebe221ad51071fe032247a04e3faccf8d88900
 @endsection

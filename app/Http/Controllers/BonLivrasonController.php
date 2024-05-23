@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\BonLivrason;
+<<<<<<< HEAD
 use App\Models\DetailBonLivrason;
 use Illuminate\Http\Request;
 use App\Models\Conditionnement;
 use App\Models\Produit;
+=======
+use Illuminate\Http\Request;
+>>>>>>> 17ebe221ad51071fe032247a04e3faccf8d88900
 use App\Models\Vendeur;
 use App\Models\Client;
 
@@ -22,13 +26,18 @@ class BonLivrasonController extends Controller
     {
         $vendeurs = Vendeur::all();
         $clients = Client::all();
+<<<<<<< HEAD
         $produits = Produit::all();
         $conditionnements = Conditionnement::all();
         return view('bonlivrasons.create', compact('vendeurs', 'clients', 'produits', 'conditionnements'));
+=======
+        return view('bonlivrasons.create', compact('vendeurs', 'clients'));
+>>>>>>> 17ebe221ad51071fe032247a04e3faccf8d88900
     }
 
     public function store(Request $request)
     {
+<<<<<<< HEAD
         // Validation des données
         $request->validate([
             'date' => 'required|date',
@@ -64,13 +73,23 @@ class BonLivrasonController extends Controller
 
         return redirect()->route('bonlivraisons.index')->with('success', 'Bon de livraison créé avec succès.');
     }
+=======
+        BonLivrason::create($request->all());
+        return redirect()->route('bonlivrasons.index')->with('success', 'Bon de livraison ajouté avec succès.');
+    }
+
+>>>>>>> 17ebe221ad51071fe032247a04e3faccf8d88900
     public function edit(BonLivrason $bon)
     {
         $vendeurs = Vendeur::all();
         $clients = Client::all();
+<<<<<<< HEAD
         $produits = Produit::all();
         $conditionnements = Conditionnement::all();
         return view('bonlivrasons.edit', compact('bon', 'vendeurs', 'clients', 'produits', 'conditionnements'));
+=======
+        return view('bonlivrasons.edit', compact('bon', 'vendeurs', 'clients'));
+>>>>>>> 17ebe221ad51071fe032247a04e3faccf8d88900
     }
 
     public function update(Request $request, BonLivrason $bon)
