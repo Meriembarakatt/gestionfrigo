@@ -32,7 +32,6 @@ class BonEntreController extends Controller
     {
         return view('bonentres.show', compact('bonEntre'));
     }
-
     public function edit(BonEntre $bonEntre)
     {
         $vendeurs = Vendeur::all();

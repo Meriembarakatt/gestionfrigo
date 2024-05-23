@@ -10,8 +10,8 @@ class ClientController extends Controller
 {
     public function index()
     {
-        $clients = Client::all(); // Récupère tous les clients depuis la base de données
-        return view('clients.index', compact('clients')); // Passe les clients à la vue 'clients.index'
+        $clients = Client::all(); 
+        return view('clients.index', compact('clients'));
     }
    
     public function create()
