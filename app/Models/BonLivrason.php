@@ -32,11 +32,7 @@ class BonLivrason extends Model
     {
         return $this->belongsTo(Client::class);
     }
-<<<<<<< HEAD
-    public function details()
-    {
+    public function details() {
         return $this->hasMany(DetailBonLivrason::class);
     }
-=======
->>>>>>> 17ebe221ad51071fe032247a04e3faccf8d88900
 }

@@ -3,16 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\BonLivrason;
-<<<<<<< HEAD
 use App\Models\DetailBonLivrason;
 use Illuminate\Http\Request;
 use App\Models\Conditionnement;
 use App\Models\Produit;
-=======
-use Illuminate\Http\Request;
->>>>>>> 17ebe221ad51071fe032247a04e3faccf8d88900
 use App\Models\Vendeur;
 use App\Models\Client;
+
 
 class BonLivrasonController extends Controller
 {
@@ -26,18 +23,15 @@ class BonLivrasonController extends Controller
     {
         $vendeurs = Vendeur::all();
         $clients = Client::all();
-<<<<<<< HEAD
         $produits = Produit::all();
         $conditionnements = Conditionnement::all();
-        return view('bonlivrasons.create', compact('vendeurs', 'clients', 'produits', 'conditionnements'));
-=======
-        return view('bonlivrasons.create', compact('vendeurs', 'clients'));
->>>>>>> 17ebe221ad51071fe032247a04e3faccf8d88900
+        $bonLivrason = new BonLivrason();
+        return view('bonlivrasons.create', compact('vendeurs', 'clients', 'produits', 'conditionnements','bonLivrason'));
     }
+
 
     public function store(Request $request)
     {
-<<<<<<< HEAD
         // Validation des données
         $request->validate([
             'date' => 'required|date',
@@ -49,7 +43,7 @@ class BonLivrasonController extends Controller
             'details.*.qte' => 'required|numeric|min:1',
             'details.*.prix_vente' => 'required|numeric|min:0',
         ]);
-
+    
         // Création du bon de livraison
         $bonLivrason = BonLivrason::create([
             'date' => $request->input('date'),
@@ -57,39 +51,30 @@ class BonLivrasonController extends Controller
             'vendeur_id' => $request->input('vendeur_id'),
             'client_id' => $request->input('client_id'),
         ]);
-
+    
         // Ajout des détails du bon de livraison
         foreach ($request->input('details') as $detail) {
-            $details= DetailBonLivrason::create([
-                'bon_livraison_id' => $bonLivrason->id,
-                'conditionnement_id' => $detail['conditionnement_id'],
-                'produit_id' => $detail['produit_id'],
-                'qte' => $detail['qte'],
-                'prix_vente' => $detail['prix_vente'],
+            DetailBonLivrason::create([
+                'bon_livraison_id' => $bonLivrason->id, // Assurez-vous que $bonLivrason est correctement défini ici
+        'conditionnement_id' => $detail['conditionnement_id'],
+        'produit_id' => $detail['produit_id'],
+        'qte' => $detail['qte'],
+        'prix_vente' => $detail['prix_vente'],
             ]);
         }
-
-        dd($details);
-
-        return redirect()->route('bonlivraisons.index')->with('success', 'Bon de livraison créé avec succès.');
+    
+        return response()->json(['message' => 'Bon de livraison créé avec succès.'], 200);
     }
-=======
-        BonLivrason::create($request->all());
-        return redirect()->route('bonlivrasons.index')->with('success', 'Bon de livraison ajouté avec succès.');
-    }
+    
+    
 
->>>>>>> 17ebe221ad51071fe032247a04e3faccf8d88900
     public function edit(BonLivrason $bon)
     {
         $vendeurs = Vendeur::all();
         $clients = Client::all();
-<<<<<<< HEAD
         $produits = Produit::all();
         $conditionnements = Conditionnement::all();
         return view('bonlivrasons.edit', compact('bon', 'vendeurs', 'clients', 'produits', 'conditionnements'));
-=======
-        return view('bonlivrasons.edit', compact('bon', 'vendeurs', 'clients'));
->>>>>>> 17ebe221ad51071fe032247a04e3faccf8d88900
     }
 
     public function update(Request $request, BonLivrason $bon)

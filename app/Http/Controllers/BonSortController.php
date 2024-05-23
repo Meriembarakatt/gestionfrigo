@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
 
 namespace App\Http\Controllers;
 
@@ -8,12 +7,6 @@ use App\Models\DetailBonSort;
 use App\Models\Vendeur;
 use App\Models\Conditionnement;
 use App\Models\Produit;
-=======
-namespace App\Http\Controllers;
-
-use App\Models\BonSort;
-use App\Models\Vendeur;
->>>>>>> 17ebe221ad51071fe032247a04e3faccf8d88900
 use Illuminate\Http\Request;
 
 class BonSortController extends Controller
@@ -27,18 +20,13 @@ class BonSortController extends Controller
     public function create()
     {
         $vendeurs = Vendeur::all();
-<<<<<<< HEAD
         $produits = Produit::all();
         $conditionnements = Conditionnement::all();
         return view('bonsorts.create', compact('vendeurs', 'conditionnements', 'produits'));
-=======
-        return view('bonsorts.create', compact('vendeurs'));
->>>>>>> 17ebe221ad51071fe032247a04e3faccf8d88900
     }
 
     public function store(Request $request)
     {
-<<<<<<< HEAD
         $bonSort = BonSort::create($request->only(['date', 'observation', 'vendeur_id']));
 
         foreach ($request->input('details') as $detail) {
@@ -50,9 +38,6 @@ class BonSortController extends Controller
             ]);
         }
 
-=======
-        BonSort::create($request->all());
->>>>>>> 17ebe221ad51071fe032247a04e3faccf8d88900
         return redirect()->route('bonsorts.index')->with('success', 'Bon de sortie ajouté avec succès.');
     }
 
@@ -69,7 +54,6 @@ class BonSortController extends Controller
 
     public function update(Request $request, BonSort $bonSort)
     {
-<<<<<<< HEAD
         $bonSort->update($request->only(['date', 'observation', 'vendeur_id']));
 
         DetailBonSort::where('bon_sort_id', $bonSort->id)->delete();
@@ -83,9 +67,6 @@ class BonSortController extends Controller
             ]);
         }
 
-=======
-        $bonSort->update($request->all());
->>>>>>> 17ebe221ad51071fe032247a04e3faccf8d88900
         return redirect()->route('bonsorts.index')->with('success', 'Bon de sortie mis à jour avec succès.');
     }
 

@@ -5,12 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\BonEntre;
 use App\Models\DetailBonEntre;
 use App\Models\Vendeur;
-<<<<<<< HEAD
 use App\Models\Conditionnement;
 //use App\Models\DetailBonEntre;
 use App\Models\Produit;
-=======
->>>>>>> 17ebe221ad51071fe032247a04e3faccf8d88900
 use Illuminate\Http\Request;
 
 class BonEntreController extends Controller
@@ -25,19 +22,14 @@ class BonEntreController extends Controller
     public function create()
     {
         $vendeurs = Vendeur::all();
-<<<<<<< HEAD
         $produits = Produit::all();
         $conditionnements = Conditionnement::all();
         $bonentres = BonEntre::all();
         return view('bonentres.create', compact('vendeurs','bonentres','conditionnements','produits'));
-=======
-        return view('bonentres.create', compact('vendeurs'));
->>>>>>> 17ebe221ad51071fe032247a04e3faccf8d88900
     }
 
     public function store(Request $request)
     {
-<<<<<<< HEAD
         // Validation des données
         $request->validate([
             'date' => 'required|date',
@@ -75,12 +67,6 @@ class BonEntreController extends Controller
     }
 
 
-=======
-        BonEntre::create($request->all());
-        return redirect()->route('bonentres.index')->with('success', 'Bon d\'entrée ajouté avec succès.');
-    }
-
->>>>>>> 17ebe221ad51071fe032247a04e3faccf8d88900
     public function show(BonEntre $bonEntre)
     {
         return view('bonentres.show', compact('bonEntre'));
