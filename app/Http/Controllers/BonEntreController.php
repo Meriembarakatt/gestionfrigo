@@ -6,18 +6,19 @@ use App\Models\BonEntre;
 use App\Models\DetailBonEntre;
 use App\Models\Vendeur;
 use App\Models\Conditionnement;
-//use App\Models\DetailBonEntre;
 use App\Models\Produit;
 use Illuminate\Http\Request;
-
+use App\Models\DetailBonEntreController;
 class BonEntreController extends Controller
 {
+    
     public function index()
     {
-        $bonentres = BonEntre::with('vendeur')->get();
+        $bonentres = BonEntre::with('vendeur')->get();  
         $details = DetailBonEntre::all();
         return view('bonentres.index', compact('bonentres', 'details'));
     }
+    
 
     public function create()
     {
@@ -71,7 +72,6 @@ class BonEntreController extends Controller
     {
         return view('bonentres.show', compact('bonEntre'));
     }
-
     public function edit(BonEntre $bonEntre)
     {
         $vendeurs = Vendeur::all();

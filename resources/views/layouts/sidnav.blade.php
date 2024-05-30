@@ -6,17 +6,13 @@
        
         <ul class="sidebar-menu">
             
-          <li class="dropdown active">
-    <a href="{{ url('/home') }}" class="nav-link has-dropdown">
-        <i class="fas fa-fire"></i><span>Dashboard</span>
-    </a>
-</li>
-
-           
+            <li class="dropdown active">
+                <a href="/home" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+            </li>
             <li class="menu-header">pages</li>
             <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
-                    <i class="fas fa-columns"></i> <span>Bon Entres</span>
+                    <i class="fas fa-columns"></i> <span>bon entres</span>
                 </a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('bonentres.index') }}">Liste bonentres</a></li>
@@ -27,7 +23,7 @@
             </li>
             <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
-                    <i class="fas fa-columns"></i> <span>Bon Sortie</span>
+                    <i class="fas fa-columns"></i> <span>bon sortie</span>
                 </a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('bonsorts.index') }}">Liste bon sortie</a></li>
@@ -38,10 +34,10 @@
             </li>
             <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
-                    <i class="fas fa-columns"></i> <span>Bon Livrasons</span>
+                    <i class="fas fa-columns"></i> <span>bon livrasons</span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="{{ route('bonlivrasons.index') }}">Liste Bon Livrasons</a></li>
+                    <li><a class="nav-link" href="{{ route('bonlivrasons.index') }}">Liste bon livrasons</a></li>
                      <li><a class="nav-link" href="{{ route('bonlivrasons.create') }}">add bon livrasons</a></li>
                      
                    
@@ -125,7 +121,7 @@
             </li>
             <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
-                    <i class="fas fa-columns"></i> <span>Utilisateur</span>
+                    <i class="fas fa-columns"></i> <span>users</span>
                 </a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('users.index') }}">Liste des users</a></li>
@@ -134,7 +130,7 @@
                    
                 </ul>
             </li>
-          
+            
             {{-- <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i> <span>Forms</span></a>
                 <ul class="dropdown-menu">

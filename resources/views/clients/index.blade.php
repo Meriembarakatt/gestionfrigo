@@ -3,7 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
+
             <div class="card">
                 <div class="card-header">
                     <h1>{{ __('Liste des Clients') }}</h1>
@@ -23,12 +25,12 @@
                         </div>
                     @endif
 
-                    <a href="{{ route('clients.create') }}" class="btn btn-success mb-3">Ajouter un Client</a>
+                    <a href="{{ route('clients.create') }}" class="btn btn-sm btn-primary"><i class="bi bi-plus"></i> Ajouter un Client</a>
                 
-                    <table class="table table-striped">
+                    <table class="table table-striped" style="width: 100%; height: 100%;">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                {{-- <th>ID</th> --}}
                                 <th>Nom</th>
                                 <th>Prénom</th>
                                 <th>Email</th>
@@ -38,18 +40,18 @@
                         <tbody>
                             @foreach ($clients as $client)
                                 <tr>
-                                    <td>{{ $client->id }}</td>
+                                    {{-- <td>{{ $client->id }}</td> --}}
                                     <td>{{ $client->nom }}</td>
                                     <td>{{ $client->prenom }}</td>
                                     <td>{{ $client->email }}</td>
                                     <td>
-                                        <a href="{{ route('clients.show', $client->id) }}" class="btn btn-info btn-sm">Voir</a>
-                                        <a href="{{ route('clients.edit', $client->id) }}" class="btn btn-primary btn-sm">Éditer</a>
-                                        <a href="{{ route('clients.reglements', $client->id) }}" class="btn btn-secondary btn-sm">Règlements</a>
+                                        <a href="{{ route('clients.show', $client->id) }}" class="btn btn-sm btn-primary"><i class="bi bi-eye"></i></a>
+                                        <a href="{{ route('clients.edit', $client->id) }}" class="btn btn-sm btn-primary"><i class="bi bi-pencil"></i></a>
+                                        <a href="{{ route('clients.reglements', $client->id) }}" class="btn btn-secondary btn-sm"><i class="bi bi-cash"></i> Règ</a>
                                         <form action="{{ route('clients.destroy', $client->id) }}" method="POST" style="display: inline-block;">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce client?')">Supprimer</button>
+                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce client?')"><i class="bi bi-trash"></i></button>
                                         </form>
                                     </td>
                                 </tr>
