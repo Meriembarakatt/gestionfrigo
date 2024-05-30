@@ -10,7 +10,6 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('clients.store') }}">
                         @csrf
-
                         <div class="form-group">
                             <label for="nom">Nom</label>
                             <input id="nom" type="text" class="form-control @error('nom') is-invalid @enderror" name="nom" value="{{ old('nom') }}" required autofocus>
@@ -19,7 +18,7 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
-                        </div>
+                        </div>w
 
                         <div class="form-group">
                             <label for="prenom">Prénom</label>

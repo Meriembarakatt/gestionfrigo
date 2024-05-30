@@ -15,6 +15,13 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ReglementVendeurController;
 use App\Http\Controllers\ReglementClientController;
 use App\Http\Controllers\DetailBonEntreController;
+// routes/web.php
+
+
+
+// Route::get('detail_bon_entre/{detail_bon_entre}', 'DetailBonEntreController@show')->name('detailbe.show');
+
+
 // Route pour afficher la liste des règlements
 
 Route::middleware(['auth'])->group(function () {
@@ -64,7 +71,7 @@ Route::get('/reglements/{reglementVendeur}/edit', [ReglementVendeurController::c
 Route::put('/reglements/{reglementVendeur}', [ReglementVendeurController::class, 'update'])->name('reglements.update');
 Route::get('/reglements/{reglement}', [ReglementVendeurController::class, 'show'])->name('reglements.show');
 
-// Route pour supprimer un règlement existant
+
 Route::delete('/reglements/{reglementVendeur}', [ReglementVendeurController::class, 'destroy'])->name('reglements.destroy');
 Route::get('/users', [UserController::class, 'index'])->name('users.index'); // Afficher la liste des utilisateurs
 Route::get('/users/create', [UserController::class, 'create'])->name('users.create'); // Afficher le formulaire de création d'un utilisateur
@@ -73,25 +80,18 @@ Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.e
 Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update'); // Mettre à jour les informations d'un utilisateur
 Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy'); // Supprimer un utilisateur
 
-// Route to list all familles
+
 Route::get('/familles', [FamilleController::class, 'index'])->name('familles.index');
 
-// Route to show the form for creating a new famille
 Route::get('/familles/create', [FamilleController::class, 'create'])->name('familles.create');
 
-// Route to store a new famille
 Route::post('/familles', [FamilleController::class, 'store'])->name('familles.store');
 
-// Route to show a specific famille
 Route::get('/familles/{famille}', [FamilleController::class, 'show'])->name('familles.show');
 
-// Route to show the form for editing a famille
 Route::get('/familles/{famille}/edit', [FamilleController::class, 'edit'])->name('familles.edit');
 
-// Route to update a famille
 Route::put('/familles/{famille}', [FamilleController::class, 'update'])->name('familles.update');
-
-// Route to delete a famille
 Route::delete('/familles/{famille}', [FamilleController::class, 'destroy'])->name('familles.destroy');
 
 Route::get('/conditionnements', [ConditionnementController::class, 'index'])->name('conditionnements.index');

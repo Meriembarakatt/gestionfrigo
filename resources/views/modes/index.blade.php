@@ -32,13 +32,13 @@
                                     <td>{{ $mode->id }}</td>
                                     <td>{{ $mode->mode }}</td>
                                     <td>
-                                        <a href="{{ route('modes.edit', $mode->id) }}" class="btn btn-sm btn-primary">{{ __('Modifier') }}</a>
-                                        <a href="{{ route('modes.show', $mode->id) }}" class="btn btn-sm btn-primary">{{ __('voir') }}</a>
+                                        <a href="{{ route('modes.edit', $mode->id) }}" class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
+                                        <a href="{{ route('modes.show', $mode->id) }}" class="btn btn-sm btn-primary"><i class="fas fa-eye"></i> </a>
                                       
                                         <form action="{{ route('modes.destroy', $mode->id) }}" method="POST" style="display: inline-block;">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce mode?')">{{ __('Supprimer') }}</button>
+                                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce mode?')"><i class="fas fa-trash"></i></button>
                                         </form>
                                     </td>
                                 </tr>

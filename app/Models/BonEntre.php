@@ -23,4 +23,8 @@ class BonEntre extends Model
     {
         return $this->belongsTo(Vendeur::class);
     }
+    public function details()
+{
+    return $this->hasMany(DetailBonEntre::class);
+}
 }

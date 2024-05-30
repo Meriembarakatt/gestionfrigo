@@ -4,12 +4,14 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
+
                 <div class="card">
                     <div class="card-header">
                         <h1>Liste des Vendeurs</h1>
                     </div>
                     <div class="card-body">
-                        <a href="{{ route('vendeurs.create') }}" class="btn btn-primary float-right">Ajouter un vendeur</a>
+                        <a href="{{ route('vendeurs.create') }}" class="btn btn-primary float-right"><i class="bi bi-plus"></i> Ajouter un vendeur</a>
                         <table class="table">
                             <thead>
                                 <tr>
@@ -32,16 +34,16 @@
                                         <td>{{ $vendeur->tell }}</td>
                                         <td>{{ $vendeur->email }}</td>
                                         <td>
-                                            <a href="{{ route('vendeurs.show', $vendeur->id) }}" class="btn btn-info">Voir</a>
-                                            <a href="{{ route('vendeurs.edit', $vendeur->id) }}" class="btn btn-primary">Modifier</a>
-                                            <a href="{{ route('vendeurs.reglements', $vendeur->id) }}" class="btn btn-warning"> Règ</a>
+                                            <a href="{{ route('vendeurs.show', $vendeur->id) }}" class="btn btn-sm btn-primary"><i class="bi bi-eye"></i> </a>
+                                            <a href="{{ route('vendeurs.edit', $vendeur->id) }}" class="btn btn-sm btn-primary"><i class="bi bi-pencil"></i> </a>
+                                            <a href="{{ route('vendeurs.reglements', $vendeur->id) }}"class="btn btn-sm btn-primary"><i class="bi bi-cash"></i> Règ</a>
                                             
                                             <form action="{{ route('vendeurs.destroy', $vendeur->id) }}" method="POST" style="display: inline-block;">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger">Supprimer</button>
+                                                <button type="submit" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce vendeur?')"><i class="bi bi-trash"></i> </button>
                                             </form>
-                                             </td>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

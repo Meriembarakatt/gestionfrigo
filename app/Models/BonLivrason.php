@@ -32,4 +32,7 @@ class BonLivrason extends Model
     {
         return $this->belongsTo(Client::class);
     }
+    public function details() {
+        return $this->hasMany(DetailBonLivrason::class);
+    }
 }

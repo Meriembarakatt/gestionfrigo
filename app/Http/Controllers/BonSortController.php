@@ -1,8 +1,12 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\BonSort;
+use App\Models\DetailBonSort;
 use App\Models\Vendeur;
+use App\Models\Conditionnement;
+use App\Models\Produit;
 use Illuminate\Http\Request;
 
 class BonSortController extends Controller
@@ -16,12 +20,24 @@ class BonSortController extends Controller
     public function create()
     {
         $vendeurs = Vendeur::all();
-        return view('bonsorts.create', compact('vendeurs'));
+        $produits = Produit::all();
+        $conditionnements = Conditionnement::all();
+        return view('bonsorts.create', compact('vendeurs', 'conditionnements', 'produits'));
     }
 
     public function store(Request $request)
     {
-        BonSort::create($request->all());
+        $bonSort = BonSort::create($request->only(['date', 'observation', 'vendeur_id']));
+
+        foreach ($request->input('details') as $detail) {
+            DetailBonSort::create([
+                'bon_sort_id' => $bonSort->id,
+                'conditionnement_id' => $detail['conditionnement_id'],
+                'produit_id' => $detail['produit_id'],
+                'qte' => $detail['qte'],
+            ]);
+        }
+
         return redirect()->route('bonsorts.index')->with('success', 'Bon de sortie ajouté avec succès.');
     }
 
@@ -38,7 +54,19 @@ class BonSortController extends Controller
 
     public function update(Request $request, BonSort $bonSort)
     {
-        $bonSort->update($request->all());
+        $bonSort->update($request->only(['date', 'observation', 'vendeur_id']));
+
+        DetailBonSort::where('bon_sort_id', $bonSort->id)->delete();
+
+        foreach ($request->input('details') as $detail) {
+            DetailBonSort::create([
+                'bon_sort_id' => $bonSort->id,
+                'conditionnement_id' => $detail['conditionnement_id'],
+                'produit_id' => $detail['produit_id'],
+                'qte' => $detail['qte'],
+            ]);
+        }
+
         return redirect()->route('bonsorts.index')->with('success', 'Bon de sortie mis à jour avec succès.');
     }
 
