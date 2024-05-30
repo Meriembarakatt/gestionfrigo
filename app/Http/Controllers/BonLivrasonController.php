@@ -63,7 +63,7 @@ class BonLivrasonController extends Controller
             ]);
         }
     
-        return response()->json(['message' => 'Bon de livraison créé avec succès.'], 200);
+        return response()->route('bonlivrasons.index')->json(['message' => 'Bon de livraison créé avec succès.'], 200);
     }
     
     

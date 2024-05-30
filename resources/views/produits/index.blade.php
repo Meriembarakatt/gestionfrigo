@@ -17,6 +17,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Désignation</th>
+                                    <th>famille</th>
                                     <th>IMAGE DE produit</th>
                                     <th>Actions</th>
                                 </tr>
@@ -26,6 +27,7 @@
                                     <tr>
                                         <td>{{ $produit->id }}</td>
                                         <td>{{ $produit->designation }}</td>
+                                        <td>{{ $produit->famille->famille}}</td>
                                         <td>
                                             @if ($produit->image)
                                             <img src="{{ asset('storage/' . $produit->image) }}" alt="Image de produit" style="max-width: 100px;">

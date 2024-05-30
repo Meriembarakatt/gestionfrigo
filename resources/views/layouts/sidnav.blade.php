@@ -6,10 +6,47 @@
        
         <ul class="sidebar-menu">
             
-            <li class="dropdown active">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
-            </li>
+          <li class="dropdown active">
+    <a href="{{ url('/home') }}" class="nav-link has-dropdown">
+        <i class="fas fa-fire"></i><span>Dashboard</span>
+    </a>
+</li>
+
+           
             <li class="menu-header">pages</li>
+            <li class="dropdown">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
+                    <i class="fas fa-columns"></i> <span>Bon Entres</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="{{ route('bonentres.index') }}">Liste bonentres</a></li>
+                     <li><a class="nav-link" href="{{ route('bonentres.create') }}">add bonentres</a></li>
+                     
+                   
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
+                    <i class="fas fa-columns"></i> <span>Bon Sortie</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="{{ route('bonsorts.index') }}">Liste bon sortie</a></li>
+                     <li><a class="nav-link" href="{{ route('bonsorts.create') }}">add bon sortie</a></li>
+                     
+                   
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
+                    <i class="fas fa-columns"></i> <span>Bon Livrasons</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="{{ route('bonlivrasons.index') }}">Liste Bon Livrasons</a></li>
+                     <li><a class="nav-link" href="{{ route('bonlivrasons.create') }}">add bon livrasons</a></li>
+                     
+                   
+                </ul>
+            </li>
             <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
                     <i class="fas fa-columns"></i> <span>Vendeurs</span>
@@ -23,7 +60,7 @@
             </li>
             <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
-                    <i class="fas fa-columns"></i> <span>client</span>
+                    <i class="fas fa-columns"></i> <span>Client</span>
                 </a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('clients.index') }}">Liste des clients</a></li>
@@ -35,7 +72,7 @@
            
             <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
-                    <i class="fas fa-columns"></i> <span>produits</span>
+                    <i class="fas fa-columns"></i> <span>Produits</span>
                 </a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('produits.index') }}">Liste des produits</a></li>
@@ -46,7 +83,7 @@
             </li>
             <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
-                    <i class="fas fa-columns"></i> <span>modes de reglement</span>
+                    <i class="fas fa-columns"></i> <span>Modes De Reglement</span>
                 </a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('modes.index') }}">Liste des modes</a></li>
@@ -57,7 +94,7 @@
             </li>
             <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
-                    <i class="fas fa-columns"></i> <span>conditionnements</span>
+                    <i class="fas fa-columns"></i> <span>Conditionnements</span>
                 </a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('conditionnements.index') }}">Liste conditionnements</a></li>
@@ -77,7 +114,7 @@
             </li>
             <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
-                    <i class="fas fa-columns"></i> <span>familles</span>
+                    <i class="fas fa-columns"></i> <span>Familles</span>
                 </a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('familles.index') }}">Liste des familles</a></li>
@@ -88,7 +125,7 @@
             </li>
             <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
-                    <i class="fas fa-columns"></i> <span>les utilisateur</span>
+                    <i class="fas fa-columns"></i> <span>Utilisateur</span>
                 </a>
                 <ul class="dropdown-menu">
                     <li><a class="nav-link" href="{{ route('users.index') }}">Liste des users</a></li>
@@ -97,39 +134,7 @@
                    
                 </ul>
             </li>
-            <li class="dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
-                    <i class="fas fa-columns"></i> <span>bon entres</span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="{{ route('bonentres.index') }}">Liste bonentres</a></li>
-                     <li><a class="nav-link" href="{{ route('bonentres.create') }}">add bonentres</a></li>
-                     
-                   
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
-                    <i class="fas fa-columns"></i> <span>bon sortie</span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="{{ route('bonsorts.index') }}">Liste bon sortie</a></li>
-                     <li><a class="nav-link" href="{{ route('bonsorts.create') }}">add bon sortie</a></li>
-                     
-                   
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
-                    <i class="fas fa-columns"></i> <span>bon livrasons</span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="{{ route('bonlivrasons.index') }}">Liste bon livrasons</a></li>
-                     <li><a class="nav-link" href="{{ route('bonlivrasons.create') }}">add bon livrasons</a></li>
-                     
-                   
-                </ul>
-            </li>
+          
             {{-- <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i> <span>Forms</span></a>
                 <ul class="dropdown-menu">

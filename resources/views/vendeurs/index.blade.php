@@ -5,13 +5,13 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header bg-primary text-white">
                         <h1>Liste des Vendeurs</h1>
                     </div>
                     <div class="card-body">
-                        <a href="{{ route('vendeurs.create') }}" class="btn btn-primary float-right">Ajouter un vendeur</a>
-                        <table class="table">
-                            <thead>
+                        <a href="{{ route('vendeurs.create') }}" class="btn btn-success float-right mb-3">Ajouter un vendeur</a>
+                        <table class="table table-bordered table-hover"
+                            <thead class="thead-dark">
                                 <tr>
                                     <th>Nom</th>
                                     <th>Prénom</th>
@@ -32,16 +32,16 @@
                                         <td>{{ $vendeur->tell }}</td>
                                         <td>{{ $vendeur->email }}</td>
                                         <td>
-                                            <a href="{{ route('vendeurs.show', $vendeur->id) }}" class="btn btn-info">Voir</a>
-                                            <a href="{{ route('vendeurs.edit', $vendeur->id) }}" class="btn btn-primary">Modifier</a>
-                                            <a href="{{ route('vendeurs.reglements', $vendeur->id) }}" class="btn btn-warning"> Règ</a>
+                                            <a href="{{ route('vendeurs.show', $vendeur->id) }}" class="btn btn-info btn-sm">Voir</a>
+                                            <a href="{{ route('vendeurs.edit', $vendeur->id) }}" class="btn btn-primary btn-sm">Modifier</a>
+                                            <a href="{{ route('vendeurs.reglements', $vendeur->id) }}" class="btn btn-warning btn-sm">Règ</a>
                                             
                                             <form action="{{ route('vendeurs.destroy', $vendeur->id) }}" method="POST" style="display: inline-block;">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger">Supprimer</button>
+                                                <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
                                             </form>
-                                             </td>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

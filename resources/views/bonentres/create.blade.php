@@ -5,121 +5,126 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <!-- Form for creating a BonEntre -->
-            <div class="card">
-                <div class="card-header">Créer un bon d'entrée</div>
-                <div class="card-body">
-                    <form id="bonEntreForm" method="POST" action="{{ route('bonentres.store') }}">
-                        @csrf
-                        <div class="form-group row">
-                            <label for="date" class="col-md-4 col-form-label text-md-right">Date</label>
-                            <div class="col-md-6">
-                                <input id="date" type="date" class="form-control" name="date" required autofocus>
-                            </div>
+        <div class="col-md-12">
+            <div class="row">
+                <!-- Form for creating a BonEntre -->
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">Créer un bon d'entrée</div>
+                        <div class="card-body">
+                            <form id="bonEntreForm" method="POST" action="{{ route('bonentres.store') }}">
+                                @csrf
+                                <div class="form-group row">
+                                    <label for="date" class="col-md-4 col-form-label text-md-right">Date</label>
+                                    <div class="col-md-6">
+                                        <input id="date" type="date" class="form-control" name="date" required autofocus>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="date_entre" class="col-md-4 col-form-label text-md-right">Date d'entrée</label>
+                                    <div class="col-md-6">
+                                        <input id="date_entre" type="date" class="form-control" name="date_entre" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="date_sort" class="col-md-4 col-form-label text-md-right">Date de sortie</label>
+                                    <div class="col-md-6">
+                                        <input id="date_sort" type="date" class="form-control" name="date_sort">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="observation" class="col-md-4 col-form-label text-md-right">Observation</label>
+                                    <div class="col-md-6">
+                                        <textarea id="observation" class="form-control" name="observation" rows="3"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="vendeur_id" class="col-md-4 col-form-label text-md-right">Vendeur</label>
+                                    <div class="col-md-6">
+                                        <select id="vendeur_id" class="form-control" name="vendeur_id" required>
+                                            <option value="">Select Vendeur</option>
+                                            @foreach($vendeurs as $vendeur)
+                                                <option value="{{ $vendeur->id }}">{{ $vendeur->nom }} {{ $vendeur->prenom }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                        <div class="form-group row">
-                            <label for="date_entre" class="col-md-4 col-form-label text-md-right">Date d'entrée</label>
-                            <div class="col-md-6">
-                                <input id="date_entre" type="date" class="form-control" name="date_entre" required>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="date_sort" class="col-md-4 col-form-label text-md-right">Date de sortie</label>
-                            <div class="col-md-6">
-                                <input id="date_sort" type="date" class="form-control" name="date_sort">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="observation" class="col-md-4 col-form-label text-md-right">Observation</label>
-                            <div class="col-md-6">
-                                <textarea id="observation" class="form-control" name="observation" rows="3"></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-    <label for="vendeur_id" class="col-md-4 col-form-label text-md-right">ID Vendeur</label>
-    <div class="col-md-6">
-        <select id="vendeur_id" class="form-control" name="vendeur_id" required>
-            <option value="">Select ID Vendeur</option>
-            @foreach($vendeurs as $vendeur)
-                <option value="{{ $vendeur->id }}">{{ $vendeur->id }}</option>
-            @endforeach
-        </select>
-    </div>
-</div>
-                        
-                    </form>
-                </div>
-            </div>
+                    </div>
 
-            <!-- Form for creating DetailBonEntre -->
-            <div class="card mt-4">
-                <div class="card-header">Ajouter un détail de bon d'entrée</div>
-                <div class="card-body">
-                    <form id="detailBonEntreForm" method="POST">
-                        @csrf
-                        <div class="form-group row">
-                            <label for="conditionnement_id" class="col-md-4 col-form-label text-md-right">Conditionnement ID</label>
-                            <div class="col-md-6">
-                            <select id="conditionnement_id" class="form-control" name="conditionnement_id" required>
-                            <option value="">Select Conditionnement ID</option>
-                            @foreach($conditionnements as $conditionnement)
-                                <option value="{{ $conditionnement->id }}">{{ $conditionnement->id }}</option>
-                            @endforeach
-                        </select>
+                    <!-- Form for creating DetailBonEntre -->
+                    <div class="card mt-4">
+                        <div class="card-header">Ajouter un détail de bon d'entrée</div>
+                        <div class="card-body">
+                            <form id="detailBonEntreForm" method="POST">
+                                @csrf
+                                <div class="form-group row">
+                                    <label for="conditionnement_id" class="col-md-4 col-form-label text-md-right">Conditionnement ID</label>
+                                    <div class="col-md-6">
+                                        <select id="conditionnement_id" class="form-control" name="conditionnement_id" required>
+                                            <option value="">Select Conditionnement ID</option>
+                                            @foreach($conditionnements as $conditionnement)
+                                                <option value="{{ $conditionnement->id }}">{{ $conditionnement->id }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="produit_id" class="col-md-4 col-form-label text-md-right">Produit</label>
+                                    <div class="col-md-6">
+                                        <select id="produit_id" class="form-control" name="produit_id" required>
+                                            <option value="">Select Produit ID</option>
+                                            @foreach($produits as $produit)
+                                                <option value="{{ $produit->id }}">{{ $produit->designation }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="qte" class="col-md-4 col-form-label text-md-right">Quantité</label>
+                                    <div class="col-md-6">
+                                        <input id="qte" type="number" class="form-control" name="qte" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="prix" class="col-md-4 col-form-label text-md-right">Prix</label>
+                                    <div class="col-md-6">
+                                        <input id="prix" type="text" class="form-control" name="prix" required>
+                                    </div>
+                                </div>
+                                <div class="form-group row mb-0">
+                                    <div class="col-md-6 offset-md-4">
+                                        <button type="button" class="btn btn-primary" onclick="ajouterDetail()">Ajouter Détail Bon d'entrée</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                                                </div>
-                        <div class="form-group row">
-                            <label for="produit_id" class="col-md-4 col-form-label text-md-right">Produit ID</label>
-                            <div class="col-md-6">
-                            <select id="produit_id" class="form-control" name="produit_id" required>
-                            <option value="">Select Produit ID</option>
-                            @foreach($produits as $produit)
-                                <option value="{{ $produit->id }}">{{ $produit->id }}</option>
-                            @endforeach
-                        </select>
-                        </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="qte" class="col-md-4 col-form-label text-md-right">Quantité</label>
-                            <div class="col-md-6">
-                                <input id="qte" type="number" class="form-control" name="qte" required>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="prix" class="col-md-4 col-form-label text-md-right">Prix</label>
-                            <div class="col-md-6">
-                                <input id="prix" type="text" class="form-control" name="prix" required>
-                            </div>
-                        </div>
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="button" class="btn btn-primary" onclick="ajouterDetail()">Ajouter Détail Bon d'entrée</button>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Table to display details of BonEntre -->
-            <div class="card mt-4">
-                <div class="card-header">Détails du Bon d'entrée</div>
-                <div class="card-body">
-                    <table class="table" id="detailTable">
-                        <thead>
-                            <tr>
-                                <th>Conditionnement ID</th>
-                                <th>Produit ID</th>
-                                <th>Quantité</th>
-                                <th>Prix</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Rows will be dynamically added here -->
-                        </tbody>
-                    </table>
-                    <button type="button" class="btn btn-primary" onclick="validerBonEntre()">Enregistrer Bon d'entrée</button>
+                <!-- Table to display details of BonEntre -->
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">Détails du Bon d'entrée</div>
+                        <div class="card-body">
+                            <table class="table" id="detailTable">
+                                <thead>
+                                    <tr>
+                                        <th>Conditionnement ID</th>
+                                        <th>Produit ID</th>
+                                        <th>Quantité</th>
+                                        <th>Prix</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Rows will be dynamically added here -->
+                                </tbody>
+                            </table>
+                            <button type="button" class="btn btn-primary" onclick="validerBonEntre()">Enregistrer Bon d'entrée</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
